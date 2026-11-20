@@ -2,8 +2,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 /**
- * The original artwork stays fixed while the cards scroll. A blurred cover
- * layer fills aspect-ratio gaps while the sharp portrait remains uncropped.
+ * The fixed artwork fills phone screens and stays a centred portrait on wider
+ * screens, while the cards scroll above it.
  */
 export function ParamBackground() {
   return (
@@ -15,20 +15,19 @@ export function ParamBackground() {
       <img
         src={BG_URL}
         alt=""
-        className="absolute inset-0 h-full w-full scale-110 object-cover opacity-65 blur-2xl sm:opacity-85"
+        className="absolute inset-0 hidden h-full w-full scale-110 object-cover opacity-70 blur-2xl sm:block"
       />
 
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.65, ease: [0.23, 1, 0.32, 1] }}
-        className="absolute left-1/2 top-0 -translate-x-1/2"
-        style={{ height: 'var(--bg-h)', width: 'min(calc(var(--bg-h) / 2), 100%)' }}
+        className="param-artwork"
       >
         <img
           src={BG_URL}
           alt=""
-          className="h-full w-full select-none object-contain sm:[mask-image:linear-gradient(to_right,transparent,#000_14%,#000_86%,transparent)]"
+          className="h-full w-full select-none object-cover sm:object-contain sm:[mask-image:linear-gradient(to_right,transparent,#000_14%,#000_86%,transparent)]"
           draggable={false}
         />
 

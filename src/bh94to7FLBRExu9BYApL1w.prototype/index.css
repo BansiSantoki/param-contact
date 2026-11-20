@@ -20,9 +20,24 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Keep the complete 1:2 portrait artwork inside the viewport without cropping. */
 .param-root {
-  --bg-h: min(100svh, 200vw);
+  --bg-h: 100svh;
+}
+
+.param-artwork {
+  position: absolute;
+  inset: 0;
+}
+
+@media (min-width: 640px) {
+  .param-artwork {
+    inset: auto;
+    top: 0;
+    left: 50%;
+    width: calc(var(--bg-h) / 2);
+    height: var(--bg-h);
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes param-float {
