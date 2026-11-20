@@ -2,9 +2,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 /**
- * The original artwork, fixed to the viewport so only the cards scroll.
- * Phones: covers the screen. Tablet/desktop: shown at full height as a centred
- * portrait, with a softened copy of itself filling the sides.
+ * The original artwork stays fixed while the cards scroll. A blurred cover
+ * layer fills aspect-ratio gaps while the sharp portrait remains uncropped.
  */
 export function ParamBackground() {
   return (
@@ -12,15 +11,15 @@ export function ParamBackground() {
       <img
         src={BG_URL}
         alt=""
-        className="absolute inset-0 hidden h-full w-full scale-110 object-cover opacity-70 blur-2xl sm:block"
+        className="absolute inset-0 h-full w-full scale-110 object-cover opacity-35 blur-2xl sm:opacity-70"
       />
 
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+        transition={{ duration: 0.65, ease: [0.23, 1, 0.32, 1] }}
         className="absolute left-1/2 top-0 -translate-x-1/2"
-        style={{ height: 'var(--bg-h)', width: 'calc(var(--bg-h) / 2)' }}
+        style={{ height: 'var(--bg-h)', width: 'min(calc(var(--bg-h) / 2), 100%)' }}
       >
         <img
           src={BG_URL}

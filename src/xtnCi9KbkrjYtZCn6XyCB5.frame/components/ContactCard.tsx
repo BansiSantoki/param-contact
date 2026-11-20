@@ -27,8 +27,8 @@ export function ContactCard({ index, title, icon, tileClass, href, wideTile, chi
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '0px 0px -40px 0px' }}
-      transition={{ duration: 0.3, delay: 0.2 + index * 0.05, ease: [0.23, 1, 0.32, 1] }}
-      whileHover={href ? { y: -3 } : undefined}
+      transition={{ duration: 0.55, delay: 0.1 + index * 0.07, ease: [0.23, 1, 0.32, 1] }}
+      whileHover={href ? { y: -4 } : undefined}
       whileTap={href ? { scale: 0.98 } : undefined}
       className="group relative flex h-full flex-col items-center rounded-[22px] border border-gold/35 bg-cream-light/90 px-2.5 pb-5 pt-10 text-center shadow-[0_10px_22px_-12px_rgba(140,95,25,0.55),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-[2px] transition-[box-shadow,border-color] duration-200 ease-out outline-none hover:border-gold/60 hover:shadow-[0_16px_30px_-12px_rgba(140,95,25,0.6),inset_0_1px_0_rgba(255,255,255,0.9)] focus-visible:ring-2 focus-visible:ring-gold sm:px-4"
     >

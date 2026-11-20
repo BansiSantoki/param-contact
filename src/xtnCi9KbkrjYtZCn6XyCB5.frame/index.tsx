@@ -32,7 +32,7 @@ export default function ContactCardScreen(props: Props) {
               alt="Param — मन की शांति…"
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 0.15, ease: [0.23, 1, 0.32, 1] }}
+              transition={{ duration: 0.65, delay: 0.12, ease: [0.23, 1, 0.32, 1] }}
               className="h-[calc(var(--bg-h)*0.165)] w-auto max-w-[78%] object-contain mix-blend-multiply"
             />
           </header>
