@@ -10,7 +10,7 @@ export function ParamBackground() {
     <div
       aria-hidden
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-cream"
-      style={{ width: '100vw', height: '100dvh' }}
+      style={{ width: '100vw', height: '100svh' }}
     >
       <img
         src={BG_URL}

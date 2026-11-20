@@ -22,6 +22,8 @@ body {
 
 .param-root {
   --bg-h: 100svh;
+  --header-h: calc(var(--bg-h) * 0.215);
+  --products-h: calc(var(--bg-h) * 0.235);
 }
 
 .param-artwork {
@@ -37,6 +39,166 @@ body {
     width: calc(var(--bg-h) / 2);
     height: var(--bg-h);
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 639px) {
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .param-root.param-root {
+    height: 100svh;
+    min-height: 0;
+    overflow: hidden;
+    --header-h: calc(var(--bg-h) * 0.19);
+    --products-h: calc(var(--bg-h) * 0.24);
+  }
+
+  .param-root .param-main {
+    display: flex;
+    height: 100%;
+    min-height: 0;
+    flex-direction: column;
+    padding-bottom: max(4px, env(safe-area-inset-bottom));
+  }
+
+  .param-header,
+  .param-products {
+    flex-shrink: 0;
+  }
+
+  .param-contact-grid {
+    flex: 1;
+    min-height: 0;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    padding-top: 18px;
+  }
+
+  .param-root .param-contact-card {
+    min-height: 0;
+    padding: 24px 6px 6px;
+    border-radius: 16px;
+  }
+
+  .param-contact-card h2 {
+    font-size: clamp(13px, 3.8vw, 15px);
+  }
+
+  .param-contact-card p {
+    margin-top: 3px;
+    font-size: clamp(10px, 3vw, 11.5px);
+    line-height: 1.1;
+  }
+
+  .param-contact-card .param-icon-wrap {
+    top: -19px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .param-contact-card .param-icon-wrap.param-wide-icon {
+    width: 52px;
+  }
+
+  .param-root .param-save-card {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 8px;
+    flex-shrink: 0;
+    height: 60px;
+    margin-top: 12px;
+    padding: 6px 8px;
+    border-radius: 16px;
+  }
+
+  .param-save-card .param-save-icon {
+    position: static;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 38px;
+    height: 38px;
+    transform: none;
+  }
+
+  .param-save-card h2 {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+    font-size: 14px;
+  }
+
+  .param-save-card > p:not(.sr-only) {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    margin-top: 0;
+    font-size: 10px;
+    line-height: 1.1;
+  }
+
+  .param-save-card .param-save-button {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    width: auto;
+    height: 38px;
+    margin-top: 0;
+    padding: 0 10px;
+    font-size: 10px;
+  }
+
+  .param-root .param-footer {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) and (max-height: 700px) {
+  .param-root.param-root {
+    --header-h: calc(var(--bg-h) * 0.18);
+    --products-h: calc(var(--bg-h) * 0.2);
+  }
+
+  .param-contact-grid {
+    gap: 8px;
+    padding-top: 14px;
+  }
+
+  .param-root .param-contact-card {
+    padding-top: 20px;
+  }
+
+  .param-save-card {
+    grid-template-columns: 32px minmax(0, 1fr) auto;
+    column-gap: 5px;
+    height: 52px;
+    margin-top: 8px;
+    padding: 4px 6px;
+  }
+
+  .param-save-card .param-save-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .param-save-card > p:not(.sr-only) {
+    display: none;
+  }
+
+  .param-save-card .param-save-button {
+    height: 34px;
+    gap: 4px;
+    padding: 0 6px;
+    font-size: 9px;
+  }
+
+  .param-save-card .param-save-button svg {
+    width: 16px;
+    height: 16px;
   }
 }
 

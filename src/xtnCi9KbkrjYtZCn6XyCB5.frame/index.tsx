@@ -21,11 +21,11 @@ export default function ContactCardScreen(props: Props) {
       <div className="param-root relative min-h-full w-full overflow-x-clip font-sans text-ink">
         <ParamBackground />
 
-        <main className="relative z-10 mx-auto w-full max-w-[480px] px-4 pb-[calc(var(--bg-h)*0.15)] sm:px-5">
+        <main className="param-main relative z-10 mx-auto w-full max-w-[480px] px-4 sm:px-5">
           {/* Logo sits in the empty upper band of the artwork */}
           <header
-            className="flex items-end justify-center"
-            style={{ height: 'calc(var(--bg-h) * 0.215)' }}
+            className="param-header flex items-end justify-center"
+            style={{ height: 'var(--header-h)' }}
           >
             <motion.img
               src={LOGO_URL}
@@ -40,11 +40,12 @@ export default function ContactCardScreen(props: Props) {
           {/* The product display (bottles on the platform) lives in the fixed artwork */}
           <section
             id="products"
+            className="param-products"
             aria-label="Param products: Chandan, Bhasma, Agar Woods and Kasturi premium dhoop sticks"
-            style={{ height: 'calc(var(--bg-h) * 0.235)' }}
+            style={{ height: 'var(--products-h)' }}
           />
 
-          <section aria-label="Contact Param Agarbatti Works" className="grid grid-cols-2 gap-x-3 gap-y-11 pt-10 sm:gap-x-4">
+          <section aria-label="Contact Param Agarbatti Works" className="param-contact-grid grid grid-cols-2 gap-x-3 gap-y-11 pt-10 sm:gap-x-4">
             <ContactCard
               index={0}
               href={`https://wa.me/${phoneDigits}`}
@@ -125,7 +126,7 @@ export default function ContactCardScreen(props: Props) {
 
           <SaveContactCard phone={phone} email={email} websiteUrl={websiteUrl} />
 
-          <footer className="mt-8 text-center text-[12px] font-semibold text-maroon-dark/80">
+          <footer className="param-footer mt-8 text-center text-[12px] font-semibold text-maroon-dark/80">
             © {new Date().getFullYear()} Param Agarbatti Works · Paddhari, Rajkot
           </footer>
         </main>
