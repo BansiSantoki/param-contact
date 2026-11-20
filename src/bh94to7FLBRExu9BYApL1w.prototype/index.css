@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --color-cream: #f7ead9;
+  --color-cream-light: #fffaf3;
+  --color-maroon: #8a1c1f;
+  --color-maroon-dark: #6b1214;
+  --color-gold: #c9962f;
+  --color-gold-light: #e8c879;
+  --color-ink: #1d1612;
+}
+
+html,
+body {
+  margin: 0;
+  overflow-x: clip;
+  background: var(--color-cream);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Keep the complete 1:2 portrait artwork inside the viewport without cropping. */
+.param-root {
+  --bg-h: min(100svh, 200vw);
+}
+
+@keyframes param-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes param-smoke {
+  0% {
+    transform: translateY(6%) scaleX(1);
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-14%) scaleX(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes param-bounce {
+  0%,
+  70%,
+  100% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(-6px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  95% {
+    transform: translateY(-2px);
+  }
+}
+
+.param-float {
+  animation: param-float 3.6s ease-in-out infinite;
+}
+
+.param-smoke {
+  animation: param-smoke 5.5s ease-out infinite;
+}
+
+.param-bounce {
+  animation: param-bounce 3.2s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .param-float,
+  .param-smoke,
+  .param-bounce {
+    animation: none;
+  }
+}
