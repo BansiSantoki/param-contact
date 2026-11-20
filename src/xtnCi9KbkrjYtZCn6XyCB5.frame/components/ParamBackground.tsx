@@ -7,11 +7,15 @@ import { motion } from 'framer-motion'
  */
 export function ParamBackground() {
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-cream">
+    <div
+      aria-hidden
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-cream"
+      style={{ width: '100vw', height: '100dvh' }}
+    >
       <img
         src={BG_URL}
         alt=""
-        className="absolute inset-0 h-full w-full scale-110 object-cover opacity-35 blur-2xl sm:opacity-70"
+        className="absolute inset-0 h-full w-full scale-110 object-cover opacity-65 blur-2xl sm:opacity-85"
       />
 
       <motion.div
