@@ -18,24 +18,17 @@ export function SaveContactCard({ phone, email, websiteUrl }: Props) {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: '-20px' }}
-      transition={{ type: 'spring', stiffness: 260, damping: 20, delay: 0.15 }}
-      className="mt-10 flex w-full justify-center px-2"
-    >
+    <div className="param-save-wrap relative z-20 mt-2 sm:mt-3 flex w-full shrink-0 justify-center">
       <motion.button
         type="button"
         onClick={handleSave}
-        whileHover={{ scale: 1.035, y: -2 }}
+        whileHover={{ scale: 1.03, y: -2 }}
         whileTap={{ scale: 0.96 }}
         transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-        className={`relative inline-flex h-13.5 w-full max-w-[340px] items-center justify-center gap-2.5 overflow-hidden rounded-full border-2 border-gold-light/90 px-6 text-[15.5px] font-black tracking-wide text-white shadow-[0_10px_25px_-5px_rgba(140,95,25,0.5),0_0_18px_rgba(201,150,47,0.35)] outline-none transition-all duration-300 ease-out focus-visible:ring-4 focus-visible:ring-gold/60 ${
-          saved
-            ? 'bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700 shadow-[0_10px_25px_-5px_rgba(21,128,61,0.7)]'
+        className={`relative inline-flex h-10.5 sm:h-12 w-full max-w-[320px] sm:max-w-[350px] items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-gold-light/90 px-5 text-[13.5px] sm:text-[14.5px] font-black tracking-wide text-white shadow-[0_6px_18px_-4px_rgba(140,95,25,0.45),0_0_14px_rgba(201,150,47,0.3)] outline-none transition-all duration-300 ease-out focus-visible:ring-4 focus-visible:ring-gold/60 ${saved
+            ? 'bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700 shadow-[0_6px_18px_-4px_rgba(21,128,61,0.6)]'
             : 'bg-gradient-to-r from-maroon-dark via-maroon to-maroon-dark hover:from-maroon hover:to-maroon-dark'
-        }`}
+          }`}
       >
         {/* Animated golden shimmer sweep across button */}
         {!saved && (
@@ -46,12 +39,12 @@ export function SaveContactCard({ phone, email, websiteUrl }: Props) {
 
         {saved ? (
           <>
-            <Check className="h-5.5 w-5.5 stroke-[3] text-emerald-100" />
+            <Check className="h-4.5 w-4.5 sm:h-5 sm:w-5 stroke-[3] text-emerald-100" />
             <span>CONTACT SAVED!</span>
           </>
         ) : (
           <>
-            <Download className="h-5.5 w-5.5 stroke-[2.5]" />
+            <Download className="h-4.5 w-4.5 sm:h-5 sm:w-5 stroke-[2.5]" />
             <span>SAVE CONTACT</span>
           </>
         )}
@@ -60,7 +53,7 @@ export function SaveContactCard({ phone, email, websiteUrl }: Props) {
       <p aria-live="polite" className="sr-only">
         {saved ? 'Contact file downloaded. Open it to add Param Agarbatti Works to your contacts.' : ''}
       </p>
-    </motion.div>
+    </div>
   )
 }
 
