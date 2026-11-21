@@ -118,17 +118,24 @@ export default function ContactCardScreen(props: Props) {
               }
               title="Follow Us on Social Media"
             >
-              <SocialLink href={facebookUrl} label="Facebook" />
-              <span className="mx-1.5 text-ink/50">|</span>
-              <SocialLink href={instagramUrl} label="Instagram" />
+              <div className="mt-2 flex items-center justify-center gap-2">
+                <SocialLink href={facebookUrl} label="Facebook" />
+                <SocialLink href={instagramUrl} label="Instagram" />
+              </div>
             </ContactCard>
           </section>
 
           <SaveContactCard phone={phone} email={email} websiteUrl={websiteUrl} />
 
-          <footer className="param-footer mt-8 text-center text-[12px] font-semibold text-maroon-dark/80">
+          <motion.footer
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="param-footer mt-10 text-center text-[12px] font-bold text-maroon-dark/80"
+          >
             © {new Date().getFullYear()} Param Agarbatti Works · Paddhari, Rajkot
-          </footer>
+          </motion.footer>
         </main>
       </div>
     </MotionConfig>
@@ -160,17 +167,25 @@ function splitWebsite(site: string): [string, string] {
 }
 
 function SocialLink({ href, label }: { href: string; label: string }) {
-  if (!href) {
-    return <span title={`${label} profile link coming soon`}>{label}</span>
-  }
+  const isFb = label.toLowerCase().includes('facebook')
+  const defaultUrl = isFb ? 'https://facebook.com' : 'https://instagram.com'
+  const targetUrl = href || defaultUrl
+
   return (
-    <a
-      href={href}
+    <motion.a
+      href={targetUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative z-10 underline-offset-2 hover:text-maroon hover:underline"
+      whileHover={{ scale: 1.06, y: -1 }}
+      whileTap={{ scale: 0.95 }}
+      className={`relative z-10 inline-flex items-center gap-1 rounded-full px-3 py-1 text-[12px] font-bold text-white shadow-sm transition-all duration-200 ${
+        isFb
+          ? 'bg-[#1877f2] hover:bg-[#1464cc] hover:shadow-[0_4px_10px_rgba(24,119,242,0.4)]'
+          : 'bg-[#d62976] hover:bg-[#b81d60] hover:shadow-[0_4px_10px_rgba(214,41,118,0.4)]'
+      }`}
     >
-      {label}
-    </a>
+      <span>{label}</span>
+      <span className="text-[10px] opacity-80">↗</span>
+    </motion.a>
   )
 }
