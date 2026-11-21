@@ -45,7 +45,7 @@ export default function ContactCardScreen(props: Props) {
             style={{ height: 'var(--products-h)' }}
           />
 
-          <section aria-label="Contact Param Agarbatti Works" className="param-contact-grid grid grid-cols-2 gap-x-3 gap-y-11 pt-10 sm:gap-x-4">
+          <section aria-label="Contact Param Agarbatti Works" className="param-contact-grid grid grid-cols-2 gap-x-3 gap-y-12 pt-12 sm:gap-x-4">
             <ContactCard
               index={0}
               href={`https://wa.me/${phoneDigits}`}

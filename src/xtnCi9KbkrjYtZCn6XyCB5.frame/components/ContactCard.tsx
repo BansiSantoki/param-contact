@@ -47,7 +47,7 @@ export function ContactCard({ index, title, icon, tileClass, href, wideTile, chi
             }
       }
       whileTap={href ? { scale: 0.96 } : undefined}
-      className="param-contact-card group relative flex h-full flex-col items-center overflow-hidden rounded-[22px] border-[1.5px] border-gold/40 bg-gradient-to-b from-cream-light/95 via-cream-light/90 to-[#fdf4e7]/90 px-2.5 pb-4 pt-10 text-center shadow-[0_12px_24px_-10px_rgba(140,95,25,0.45),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-[4px] transition-[border-color,box-shadow] duration-300 ease-out outline-none hover:border-gold/80 hover:shadow-[0_18px_32px_-10px_rgba(140,95,25,0.55),0_0_18px_rgba(201,150,47,0.22),inset_0_1px_0_rgba(255,255,255,1)] focus-visible:ring-2 focus-visible:ring-gold sm:px-4"
+      className="param-contact-card group relative flex h-full flex-col items-center rounded-[22px] border-[1.5px] border-gold/40 bg-gradient-to-b from-cream-light/95 via-cream-light/90 to-[#fdf4e7]/90 px-2.5 pb-4 pt-10 text-center shadow-[0_12px_24px_-10px_rgba(140,95,25,0.45),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-[4px] transition-[border-color,box-shadow] duration-300 ease-out outline-none hover:border-gold/80 hover:shadow-[0_18px_32px_-10px_rgba(140,95,25,0.55),0_0_18px_rgba(201,150,47,0.22),inset_0_1px_0_rgba(255,255,255,1)] focus-visible:ring-2 focus-visible:ring-gold sm:px-4"
     >
       {/* Light sweep animation overlay on card hover */}
       <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-[22px]" aria-hidden>
@@ -56,7 +56,7 @@ export function ContactCard({ index, title, icon, tileClass, href, wideTile, chi
 
       {/* Floating icon badge with hover scale & rotate micro-animation */}
       <span
-        className={`param-icon-wrap absolute -top-7 left-1/2 h-14 -translate-x-1/2 ${
+        className={`param-icon-wrap absolute -top-7 left-1/2 z-20 h-14 -translate-x-1/2 ${
           wideTile ? 'param-wide-icon w-[76px]' : 'w-14'
         }`}
       >
